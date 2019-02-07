@@ -1,0 +1,31 @@
+buildscript {
+    ext {
+        springBootVersion = '2.1.2.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.zeliter'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    runtimeOnly 'org.springframework.boot:spring-boot-devtools'
+    //compileOnly 'org.projectlombok:lombok'
+    compile('com.amazonaws:aws-lambda-java-core:1.1.0')
+    compile('com.amazonaws:aws-lambda-java-events:1.1.0')
+    compile('com.google.zxing:core:3.3.2')
+    compile('com.google.zxing:javase:3.3.2')
+}
